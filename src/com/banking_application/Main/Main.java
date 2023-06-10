@@ -8,28 +8,32 @@ import com.banking_application.classes.Processing;
 public class Main {
 
 	public static void main(String[] args) {
+		try {
 		Scanner sc = new Scanner(System.in);
-		Bank b1 = new Bank();
 		Processing p1 = new Processing();
 		boolean exit = false;
+		String num ="";
 		
 		System.out.println("Enter your Name :");
 		String name = sc.nextLine();
-		b1.setName(name);
-		
-		String num ="";
+		p1.setName(name);
 		
 		do {
-		System.out.println("Enter Account Number (Must be 5 digit) :");
-		num = sc.nextLine();
-		int accountnumber = Integer.parseInt(num);
-		b1.setAccount_number(accountnumber);
-		}while(num.length()<5);
+			
+			System.out.println("Enter Account Number (Must be 5 digit) :");
+			num = sc.nextLine();
+			long accountnumber = Long.parseLong(num);
+			p1.setAccountNumber(accountnumber);
+		
+		}while(num.length()<5 || num.length()>5);
+		
 		do {
+			
+			
 			System.out.println("Enter the choise");
 			System.out.println("1. Check Balance");
-			System.out.println("2. Withdraw Amount");
-			System.out.println("3. Deposit Balance");
+			System.out.println("2. Withdraw Money");
+			System.out.println("3. Deposit Money");
 			System.out.println("4. Check previous Transactions");
 			System.out.println("5. Exit");
 			int input =sc.nextInt();
@@ -41,17 +45,18 @@ public class Main {
 					break;
 			case 3 : p1.deposit();
 					break;
-			case 4 : System.out.println("Customer Name : "+b1.getName());
-					 System.out.println("Account Number : "+b1.getAccount_number()); 
-				
-				p1.checkTransactions();
-						break;
+			case 4 : p1.checkTransactions();
+					break;
 			case 5 : exit=true;
 					break;
 			default : System.out.println("Wrong Choise");
-						break;
+					break;
 			}
 		}while(!exit);
+		} catch(Exception e){
+			System.out.println("Opps Sorry the Account number is too big");
+			System.out.println("Transaction Terminated");
+		}
 	}
 
 }

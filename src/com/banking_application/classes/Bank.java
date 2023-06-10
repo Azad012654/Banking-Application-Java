@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Bank {
 
-	private int account_number;
+	private long account_number;
 	private int balance=20;
 	private List<Transactions> transaction;
 	private String name;
@@ -21,10 +21,10 @@ public class Bank {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAccount_number() {
+	public long getAccount_number() {
 		return account_number;
 	}
-	public void setAccount_number(int account_number) {
+	public void setAccount_number(long account_number) {
 		this.account_number = account_number;
 	}
 	public int getBalance() {

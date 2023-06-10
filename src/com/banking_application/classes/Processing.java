@@ -53,8 +53,17 @@ public class Processing {
 	public void checkTransactions() {
 		
 		List<Transactions> mylist =bank.getTransaction();
+		System.out.println("Customer Name : "+bank.getName());
+		 System.out.println("Account Number : "+bank.getAccount_number());
 		for(int i=0;i<mylist.size();i++) {
 			System.out.println(i+1+" "+mylist.get(i));
 	}
+	}
+	
+	public void setName(String name) {
+		bank.setName(name);
+	}
+	public void setAccountNumber(long account) {
+		bank.setAccount_number(account);
 	}
 }
